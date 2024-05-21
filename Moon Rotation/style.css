@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    font-family: "Courier New";
+}
+body {
+    padding: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 1);
+}
+#container {
+    margin: 50px auto;
+    width: 800px;
+    height: 800px;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#planet {
+    width: 300px;
+    height: 300px;
+    background-image: linear-gradient(to right, #a5a5a5 0px, #2e2e2e 300px, #a5a5a5 600px, #2e2e2e 900px);
+    background-position: left;
+    background-size: 300%;
+    border-radius: 50%;
+    animation: rotation 5s infinite;
+    animation-timing-function: linear;
+}
+@keyframes rotation {
+    0% {  transform: scale(0.98);    background-position: left;  }
+    50% { transform: scale(1.08); }
+    100% {   transform: scale(0.98);    background-position: right;  }
+}
+#moon {
+    width: 35px;
+    height: 35px;
+    margin-left: 75px;
+    background-image: linear-gradient(white, #5b5b5b);
+    border-radius: 50%;
+    animation: orbit 5s infinite;
+    transform-origin: -300px;
+    animation-timing-function: cubic-bezier(.6,.76,.46,.23);
+}
+@keyframes orbit {
+    0% {background-color: white; transform: rotateZ(0deg)}
+    50% {background-color: red;}
+    100% {background-color: white; transform: rotateZ(1turn)}
+}
